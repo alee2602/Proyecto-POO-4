@@ -8,7 +8,6 @@ public class Hotel {
     private int capacidad;
     private int numhabitaciones;
     ArrayList<Habitaciones> listadehabitaciones = new ArrayList<Habitaciones>();
-    ArrayList<Cliente> listadeclientes = new ArrayList<Cliente>();
 
     public Hotel(String nombre, String ubicacion, int capacidad, int numhabitaciones) {
         this.nombre = nombre;
@@ -53,14 +52,6 @@ public class Hotel {
 
     public int getNumHabitaciones() {
         return numhabitaciones;
-    }
-
-    public void setListadeclientes(ArrayList<Cliente> listadeclientes) {
-        this.listadeclientes = listadeclientes;
-    }
-
-    public ArrayList<Cliente> getListadeclientes() {
-        return listadeclientes;
     }
 
 }
