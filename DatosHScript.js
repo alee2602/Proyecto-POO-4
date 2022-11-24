@@ -1,18 +1,14 @@
-console.log("This is index.js");
+var descripcionH = new Array();
+var archivoH = XMLHttpRequest();
+var datosH = "datosH.txt";
 
-// All variables
+archivoH.open("GET", datosH, false);
+archivoH.send(null);
+var txt = archivoH.responseText;
 
-let upload = document.getElementById('upload');
-let outputBx = document.getElementById('outputBx');
-
-// Listen for file upload/change
-
-upload.addEventListener("change", ()=>{
-     // Initialize file reader
-
-     let fr = new FileReader();
-     fr.readAsText(datosH.txt);
-     fr.onload = function() {
-          console.log(fr.result);
-     };
+for(var i = 0;i<txt.length; i++){
+     descripcionH.push(txt[i]);
+}
+descripcionH.forEach(function(data){
+     console.log(data);
 });
