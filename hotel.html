@@ -25,46 +25,112 @@
 
 
 <!-- Seleccionar Hoteles -->
+<link rel="stylesheet" href="estiloHoteles.css">
+<br>
+<center>
+  <h1>ELIGE EL ARCHIVO DE DATOS</h1>
+<input type="file" id="archivo">
+<div id="tablares"></div>
+</center>
 <div class="wrap">
-  <link rel="stylesheet" href="estiloHoteles.css">
   <h1>ELIGE TU HOTEL</h1>
+
   <div class="store-wrapper">
+
     <section class="hotel-list">
-      <div class="hotel-item">
-        <img src="images/hoteles/ACayala1.jpg" alt="" >
+      <!--<div class="hotel-item">
+        <img src="images/hoteles/ACayala1.jpg" alt="">
         <a href="info.html">Hotel AC</a>
-      </div>
-      <div class="hotel-item">
-        <img src="images/hoteles/BarceloCiudad1.jpg" alt="" >
-        <a href="info.html">Barcelo, Guatemala City</a>
-      </div>
-      <div class="hotel-item" >
-        <img src="images/hoteles/CaminoRAntigua1.jpg" alt="" >
-        <a href="info.html">Camino Real, Antigua Guatemala</a>
-      </div>
-      <div class="hotel-item">
-        <img src="images/hoteles/CaminoRCiudad1.jpg" alt="" >
-        <a href="info.html">Camino Real, Guatemala City</a>
-      </div>
-      <div class="hotel-item">
-        <img src="images/hoteles/OceanaResorts1.jpg" alt="" >
-        <a href="info.html">Oceana Resorts</a>
-      </div>
-      <div class="hotel-item">
-        <img src="images/hoteles/PortaAntigua1.jpg" alt="" >
-        <a href="info.html">Porta Antigua Guatemala</a>
-      </div>
-      <div class="hotel-item">
-        <img src="images/hoteles/RadissonCiudad1.jpg" alt="" >
-        <a href="info.html">Radisson, Guatemala City</a>
-      </div>
-      <div class="hotel-item">
-        <img src="images/hoteles/SantoDomingo1.jpg" alt="" >
-        <a href="info.html">Santo Domingo</a>
-      </div>
+      </div>-->
     </section>
+
   </div>
 </div>
 
+<script>
+  
+  /**
+  * Importar leer .csv
+  **/
+  function SepararDatos(data) {
+    const todasFilas = data.split(/\r?\n|\r/);
+    const hoteles = [];
+    for (let i = 0; i < todasFilas.length; i++) {
+    //Separar cada fila
+    hoteles[i] = todasFilas[i].split(',');
+  }
+    
+  
+  //crear objeto hotel
+  const hotelesList = [];
+  class Hotel {
+    constructor(nombre,imagen,Direccion,Contacto1,Contacto2,Limpieza,Calidad,Wifi,Confort,Atencion,Instalaciones,Single,SinglePrecio,Double,DoublePrecio,Suite,SuitePrecio) {
+      this.nombre = nombre;
+      this.imagen = imagen;
+      this.Direccion = Direccion;
+      this.Contacto2 = Contacto2;
+      this.Limpieza = Limpieza;
+      this.Calidad = Calidad;
+      this.Wifi = Wifi;
+      this.Confort = Confort;
+      this.Atencion = Atencion;
+      this.Instalaciones = Instalaciones;
+      this.Single = Single;
+      this.SinglePrecio = SinglePrecio;
+      this.Double = Double;
+      this.DoublePrecio = DoublePrecio;
+      this.Suite = Suite;
+      this.SuitePrecio = SuitePrecio;
+    }
+  }
+
+  //Llenar lista de hoteles: hotelesList
+  for (let i = 1; i < hoteles.length; i++) {
+    //Crear objeto con los parametros
+    let hot = new Hotel(hoteles[i][0],hoteles[i][1],hoteles[i][2],hoteles[i][3],hoteles[i][4],hoteles[i][5],hoteles[i][6],hoteles[i][7],hoteles[i][8],hoteles[i][9],hoteles[i][10],hoteles[i][11],hoteles[i][12],hoteles[i][13],hoteles[i][14],hoteles[i][15],hoteles[i][16]);
+    hotelesList[i-1] = hot;
+  }
+    console.log(hotelesList);
+    //MOSTRAR HOTELES
+
+    const ListHoteles = document.getElementsByClassName('hotel-list')[0];
+    console.log(ListHoteles);
+
+      for(let i = 0; i<hotelesList.length;i++){
+
+      const h = Object.values(hotelesList[i]);
+      //Agrega un div
+      let divH1 = document.createElement('div');
+        divH1.className = 'hotel-item';
+        //console.log('Hotel:'+hotelesList[0].nombre);
+        ListHoteles.appendChild(divH1);
+        //Agrega imagen
+        let imagenH = document.createElement('img');
+        imagenH.setAttribute('src',hotelesList[i].imagen);
+        divH1.appendChild(imagenH);
+        //Agrega nombre
+        let nombreH = document.createElement('a');
+        nombreH.innerText = hotelesList[i].nombre;
+        nombreH.setAttribute('href', 'info.html');
+        divH1.appendChild(nombreH);
+    }
+
+
+  }
+  
+
+  function leerArchivo(evt) {
+    let file = evt.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (e) => {
+      // Cuando el archivo se terminó de cargar
+      SepararDatos(e.target.result)
+    };
+    // Leer archivo
+    reader.readAsText(file);
+  }
+  document.querySelector('#archivo')
+    .addEventListener('change', leerArchivo, false);
+</script>
 </body>
 </html>

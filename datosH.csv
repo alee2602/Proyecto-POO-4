@@ -1,0 +1,9 @@
+Nombre,Imagen,Direccion,Contacto1,Contacto2,Limpieza,Calidad,Wifi,Confort,Atencion,Instalaciones,Single,SinglePrecio,Double,DoublePrecio,Suite,SuitePrecio
+AC Hotel,Images\hoteles\ACayala1.jpg,Ciudad de Guatemala,hotelAC@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Barcelo,Images\hoteles\BarceloCiudad1.jpg,Ciudad de Guatemala,BarceloCity@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Camino Real,Images\hoteles\CaminoRAntigua1.jpg,Antigua Guatemala,caminoRantigua@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Camino Real,Images\hoteles\CaminoRCiudad1.jpg,Ciudad de Guatemala,caminoRciudad@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Oceana Resorts,Images\hoteles\OceanaResorts1.jpg,Iztapa,oceanaRes@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Porta Antigua Guatemala,Images\hoteles\PortaAntigua1.jpg,Antigua Guatemala,PortaAG@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Radisson,Images\hoteles\RadissonCiudad1.jpg,Ciudad de Guatemala,RadissonC@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
+Santo Domingo,Images\hoteles\SantoDomingo1.jpg,Antigua Guatemala,SantoDantigua@gmail.com,2123 3241,90,70,60,85,93,89,4,1400,8,1900,2,2600
