@@ -90,6 +90,7 @@
     let hot = new Hotel(hoteles[i][0],hoteles[i][1],hoteles[i][2],hoteles[i][3],hoteles[i][4],hoteles[i][5],hoteles[i][6],hoteles[i][7],hoteles[i][8],hoteles[i][9],hoteles[i][10],hoteles[i][11],hoteles[i][12],hoteles[i][13],hoteles[i][14],hoteles[i][15],hoteles[i][16]);
     hotelesList[i-1] = hot;
   }
+  localStorage["hotelesList"] = hotelesList;
     console.log(hotelesList);
     //MOSTRAR HOTELES
 
@@ -112,10 +113,15 @@
         let nombreH = document.createElement('a');
         nombreH.innerText = hotelesList[i].nombre;
         nombreH.setAttribute('href', 'info.html');
+        nombreH.setAttribute("onclick",abrirPag(hotelesList[i].nombre));
         divH1.appendChild(nombreH);
     }
 
 
+  }
+
+  function abrirPag(value){
+    localStorage["key"] = value;
   }
   
 
